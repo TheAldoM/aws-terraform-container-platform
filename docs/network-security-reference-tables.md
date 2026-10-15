@@ -10,8 +10,12 @@ Reference tables for the 3-tier architecture (ALB → ECS Fargate → RDS Postgr
 | `PublicSubnetB` | `10.0.2.0/24` | `us-east-1b` | Public | ALB, NAT Gateway B |
 | `PrivateAppSubnetA` | `10.0.11.0/24` | `us-east-1a` | Private (app) | ECS Fargate task |
 | `PrivateAppSubnetB` | `10.0.12.0/24` | `us-east-1b` | Private (app) | ECS Fargate task |
-| `PrivateDBSubnetA` | `10.0.21.0/24` | `us-east-1a` | Private (data) | RDS PostgreSQL Primary |
-| `PrivateDBSubnetB` | `10.0.22.0/24` | `us-east-1b` | Private (data) | RDS PostgreSQL Standby |
+| `PrivateDBSubnetA` | `10.0.21.0/24` | `us-east-1a` | Private (data) | RDS DB Subnet Group |
+| `PrivateDBSubnetB` | `10.0.22.0/24` | `us-east-1b` | Private (data) | RDS DB Subnet Group |
+
+**Notes**
+
+- **RDS Multi-AZ placement:** `PrivateDBSubnetA` and `PrivateDBSubnetB` belong to the DB subnet group. AWS manages the primary and standby DB instance placement.
 
 ## 2. Route tables
 
